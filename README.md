@@ -3,7 +3,7 @@
 <!--
 **Arag0rn/Arag0rn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
+[Here are some ideas to get you started:](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username={username}&theme={theme_name}&exclude={exclude})
 
 - 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
