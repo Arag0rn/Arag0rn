@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-<p>Welcome to my page! </br> I'm Serhii, Frontend developer from  <img src="https://img.icons8.com/color/48/ukraine.png" width="13 alt="Украинский флаг"><b>Mariupol, Ukraine</b>, currently living in <img src="https://cdn-icons-png.flaticon.com/512/197/197564.png" width="13"/> <b>Merseburg, Germany</b>. </p>
+<p>Welcome to my page! </br> I'm Serhii, Frontend developer from  <img src="https://img.icons8.com/color/48/ukraine.png" width="13 alt="Украинский флаг"><b>Mariupol, Ukraine</b>, currently living in <img src="https://img.icons8.com/color/48/germany.png" alt="germany" width="13"/> <b>Merseburg, Germany</b>. </p>
 <h3>Things I code with</h3>
 <p>
   <img alt="React" src="https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white" />
