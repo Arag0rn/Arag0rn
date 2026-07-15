@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="1180" height="610">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-glow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#141420" />
+      <stop offset="100%" stop-color="#0A0A0E" />
+    </radialGradient>
+
+    <!-- Vibrant Name Text Gradient -->
+    <linearGradient id="name-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+
+    <!-- Orb Gradients -->
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.8)" />
+      <stop offset="100%" stop-color="rgba(16, 185, 129, 0)" />
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(139, 92, 246, 0.6)" />
+      <stop offset="100%" stop-color="rgba(139, 92, 246, 0)" />
+    </radialGradient>
+
+    <!-- Glass Pill Gradient -->
+    <linearGradient id="glass-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.15)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+    </pattern>
+
+    <!-- Typing Mask -->
+    <clipPath id="typing-mask">
+      <rect x="80" y="320" height="50" class="mask-rect" />
+    </clipPath>
+
+    <!-- Glass Shadow Filter -->
+    <filter id="glass-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Glow Filter for Orbs -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Typography & Core Styles */
+    text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    .title { font-size: 56px; font-weight: 800; fill: #FFFFFF; letter-spacing: -1px; }
+    .subtitle { font-size: 22px; font-weight: 400; fill: #A1A1AA; line-height: 1.6; }
+    
+    /* Typing Animation Classes */
+    .type-text { font-size: 32px; font-weight: 600; fill: #E4E4E7; letter-spacing: -0.5px; }
+    .cursor { fill: #34D399; animation: blink 0.8s step-start infinite; }
+    
+    .text1, .text2, .text3 { opacity: 0; animation: cycleText 12s infinite; }
+    .text1 { animation-delay: 0s; }
+    .text2 { animation-delay: 4s; }
+    .text3 { animation-delay: 8s; }
+    
+    @keyframes cycleText {
+      0%, 30% { opacity: 1; }
+      33%, 100% { opacity: 0; }
+    }
+    
+    .mask-rect { animation: typeMask 4s infinite; }
+    @keyframes typeMask {
+      0%, 10% { width: 0; }
+      40%, 80% { width: 480px; }
+      100% { width: 0; }
+    }
+    
+    .cursor-move { animation: moveCursor 4s infinite; }
+    @keyframes moveCursor {
+      0%, 10% { transform: translateX(0); }
+      40%, 80% { transform: translateX(480px); }
+      100% { transform: translateX(0); }
+    }
+    
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Flowing Skills Animations */
+    .scroll-left { animation: scrollL 30s linear infinite; }
+    .scroll-right { animation: scrollR 30s linear infinite; }
+    
+    @keyframes scrollL { from { transform: translateX(0); } to { transform: translateX(-1260px); } }
+    @keyframes scrollR { from { transform: translateX(-1260px); } to { transform: translateX(0); } }
+
+    /* Orb Animations */
+    .orb-float-1 { animation: float1 15s ease-in-out infinite; }
+    .orb-float-2 { animation: float2 20s ease-in-out infinite alternate; }
+    
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 40px) scale(1.05); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.1); }
+    }
+
+    /* Glass Pill Hover Effect (Fallback to pulse) */
+    .pill { transition: all 0.3s ease; }
+    .pill:hover rect { fill: rgba(255,255,255,0.08); stroke: rgba(52, 211, 153, 0.6); }
+    .pill:hover text { fill: #FFF; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1180" height="610" rx="32" fill="url(#bg-glow)" />
+  <rect width="1180" height="610" rx="32" fill="url(#grid)" />
+
+  <!-- Background Ambient Orbs (Center-Right) -->
+  <g filter="url(#glow)">
+    <circle cx="950" cy="200" r="160" fill="url(#orb1)" class="orb-float-1" opacity="0.6" />
+    <circle cx="850" cy="350" r="180" fill="url(#orb2)" class="orb-float-2" opacity="0.5" />
+  </g>
+
+  <!-- Typography Section -->
+  <!-- Main Greeting -->
+  <text x="80" y="160" class="title">
+    Hi, my name is <tspan fill="url(#name-gradient)">Serhii Khabuzov</tspan>
+  </text>
+
+  <!-- Bio -->
+  <text x="80" y="230" class="subtitle">
+    Results-oriented Fullstack Developer based in Leipzig.
+  </text>
+  <text x="80" y="265" class="subtitle">
+    Passionate about high-performance apps &amp; seamless user experiences.
+  </text>
+
+  <!-- Animated Typing Text -->
+  <g>
+    <!-- Text Elements clipped by animated mask -->
+    <g clip-path="url(#typing-mask)">
+      <text x="80" y="355" class="type-text text1">React &amp; Next.js Specialist</text>
+      <text x="80" y="355" class="type-text text2">Web Accessibility (WCAG) Advocate</text>
+      <text x="80" y="355" class="type-text text3">Agentic-Coding Enthusiast</text>
+    </g>
+    <!-- Blinking Cursor -->
+    <rect x="80" y="325" width="4" height="38" rx="2" class="cursor cursor-move" />
+  </g>
+
+  <!-- Glassmorphism Skills Section (Bottom) -->
+  <!-- Container overlay to create depth -->
+  <rect x="0" y="440" width="1180" height="170" fill="rgba(10, 10, 14, 0.4)" rx="32" />
+  
+  <g transform="translate(0, 460)">
+    <!-- Row 1: Left Scrolling -->
+    <g class="scroll-left">
+      <!-- Original Set -->
+      <g transform="translate(80, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">React</text></g>
+      <g transform="translate(240, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Next.js</text></g>
+      <g transform="translate(400, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Vue.js</text></g>
+      <g transform="translate(560, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">TypeScript</text></g>
+      <g transform="translate(720, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Node.js</text></g>
+      <g transform="translate(880, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Tailwind CSS</text></g>
+      <g transform="translate(1040, 0)" class="pill"><rect width="180" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="90" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Performance</text></g>
+      
+      <!-- Duplicated Set for Seamless Loop -->
+      <g transform="translate(1340, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">React</text></g>
+      <g transform="translate(1500, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Next.js</text></g>
+      <g transform="translate(1660, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Vue.js</text></g>
+      <g transform="translate(1820, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">TypeScript</text></g>
+      <g transform="translate(1980, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Node.js</text></g>
+      <g transform="translate(2140, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Tailwind CSS</text></g>
+      <g transform="translate(2300, 0)" class="pill"><rect width="180" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="90" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Performance</text></g>
+    </g>
+
+    <!-- Row 2: Right Scrolling -->
+    <g class="scroll-right" transform="translate(0, 60)">
+      <!-- Original Set -->
+      <g transform="translate(80, 0)" class="pill"><rect width="160" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="80" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">WCAG 2.1</text></g>
+      <g transform="translate(260, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">PHP</text></g>
+      <g transform="translate(420, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">SQL</text></g>
+      <g transform="translate(580, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">MongoDB</text></g>
+      <g transform="translate(740, 0)" class="pill"><rect width="180" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="90" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Agentic-Coding</text></g>
+      <g transform="translate(940, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">UI/UX</text></g>
+      <g transform="translate(1100, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Frontend</text></g>
+      
+      <!-- Duplicated Set for Seamless Loop -->
+      <g transform="translate(1340, 0)" class="pill"><rect width="160" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="80" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">WCAG 2.1</text></g>
+      <g transform="translate(1520, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">PHP</text></g>
+      <g transform="translate(1680, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">SQL</text></g>
+      <g transform="translate(1840, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">MongoDB</text></g>
+      <g transform="translate(2000, 0)" class="pill"><rect width="180" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="90" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Agentic-Coding</text></g>
+      <g transform="translate(2200, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">UI/UX</text></g>
+      <g transform="translate(2360, 0)" class="pill"><rect width="140" height="44" rx="22" fill="rgba(255,255,255,0.03)" stroke="url(#glass-border)" filter="url(#glass-shadow)"/><text x="70" y="28" text-anchor="middle" font-size="16" fill="#A1A1AA" font-weight="500">Frontend</text></g>
+    </g>
+  </g>
+
+  <!-- Border Overlay for the entire card (Premium Edge) -->
+  <rect width="1178" height="608" x="1" y="1" rx="32" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+</svg>
