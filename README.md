@@ -1,8 +1,4 @@
-<div align="center">
-  <picture>
-    <img src="hero.svg" alt="Serhii Khabuzov - Frontend & Fullstack Developer" width="100%" />
-  </picture>
-</div>
+<img src="https://cdn.jsdelivr.net/gh/Arag0rn/Arag0rn@main/hero.svg" alt="Serhii Khabuzov - Frontend & Fullstack Developer" width="100%" />
 
 ### Welcome to my profile!
 
